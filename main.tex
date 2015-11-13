@@ -1,0 +1,40 @@
+\documentclass[11pt, oneside]{report}
+    \usepackage{config/style} 
+    % \usepackage{} are all in that file. DO NOT ADD USEPACKAGE-COMMANDS HERE
+    
+    \DefineBibliographyStrings{english}{
+      bibliography = {References}, % name the bibl references
+    }
+    \addbibresource{references} 
+    \include{acronyms}
+    \include{glossary}
+\begin{document}
+    
+    \include{frontpage}
+    \include{abstract}
+    \include{acknowledgement}
+    
+    \thispagestyle{empty}
+    \pagenumbering{roman}
+    
+    
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    
+    \clearpage
+    
+    \pagenumbering{arabic}
+    \pagestyle{fancy}
+    \fancyhead[L]{}
+
+    % insert these for each .tex-file Have one for each chapter (or section if you use sections}
+    \glsresetall
+    \include{introduction} 
+    
+    \printbibliography[heading=bibintoc]
+    \printglossaries
+    
+    \include{appendices/appendix-main}
+    
+\end{document}
